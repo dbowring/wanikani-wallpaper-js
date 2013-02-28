@@ -1,0 +1,12 @@
+.settings input[type=range] {
+    font-size: 18px;
+    margin-left: 2em;
+}
+.settings input[type=range]:before {
+    content: attr(value);
+    margin-left: -2em;
+    text-align: right;
+}
+#api_key {
+    width: 232px;
+}
