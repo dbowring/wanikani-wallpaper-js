@@ -6,13 +6,13 @@
 <body>
     <div class="settings">
         <input id="api_key" type="text" placeholder="API KEY" onchange="wallpaper.setAPIKey(this.value);">
-        W <input id="width" type="text" placeholder="WIDTH" value="1920" onchange="wallpaper.setWidth(parseInt(this.value));">
-        H <input id="height" type="text" placeholder="HEIGHT" value="1080" onchange="wallpaper.setHeight(parseInt(this.value));">
-        <input id="x_margin" type="range" min="0" max="100" step="1" value="10" title="X Margin" onchange="wallpaper.setXMargin(parseInt(this.value));this.setAttribute('value', this.value);">
-        <input id="y_margin" type="range" min="0" max="100" step="1" value="10" title="Y Margin" onchange="wallpaper.setYMargin(parseInt(this.value));this.setAttribute('value', this.value);">
-        <input id="x_padding" type="range" min="0" max="100" step="1" value="6" title="X Padding" onchange="wallpaper.setXPadding(parseInt(this.value));this.setAttribute('value', this.value);">
-        <input id="y_padding" type="range" min="0" max="100" step="1" value="3" title="Y Padding" onchange="wallpaper.setYPadding(parseInt(this.value));this.setAttribute('value', this.value);">
-        <input id="font_size" type="range" min="4" max="100" step="1" value="20" title="Font Size" onchange="wallpaper.setFontSize(parseInt(this.value));this.setAttribute('value', this.value);">
+        W <input id="width" type="text" placeholder="WIDTH" value="800" onchange="wallpaper.setWidth(parseInt(this.value));">
+        H <input id="height" type="text" placeholder="HEIGHT" value="600" onchange="wallpaper.setHeight(parseInt(this.value));">
+        <input id="x_margin" type="range" min="0" max="100" step="1" value="0" title="X Margin" onchange="wallpaper.setXMargin(parseInt(this.value));this.setAttribute('value', this.value);">
+        <input id="y_margin" type="range" min="0" max="100" step="1" value="7" title="Y Margin" onchange="wallpaper.setYMargin(parseInt(this.value));this.setAttribute('value', this.value);">
+        <input id="x_padding" type="range" min="0" max="100" step="1" value="0" title="X Padding" onchange="wallpaper.setXPadding(parseInt(this.value));this.setAttribute('value', this.value);">
+        <input id="y_padding" type="range" min="0" max="100" step="1" value="1" title="Y Padding" onchange="wallpaper.setYPadding(parseInt(this.value));this.setAttribute('value', this.value);">
+        <input id="font_size" type="range" min="4" max="100" step="1" value="13" title="Font Size" onchange="wallpaper.setFontSize(parseInt(this.value));this.setAttribute('value', this.value);">
         <input type="submit" value="Query Kanji" onclick="wallpaper.queryKanji(); return false;">
         <input type="submit" value="Empty Characters" onclick="wallpaper.emptyCharacters(); return false;">
         <input type="submit" value="Add All Kanji" onclick="wallpaper.AddHeisigOrder(); return false;">
