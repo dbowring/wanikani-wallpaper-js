@@ -89,21 +89,20 @@ CharCollection.prototype.each = function(fn) {
 var redraw_hold = 0;
 var redraw = function() {
     if (redraw_hold > 0) {
-        return
-    };
+        return;
+    }
     svg.setAttributeNS(null, 'width', width);
     svg.setAttributeNS(null, 'height', height);
     var children = svg.getElementsByClassName('character');
     var font_height = font_size * font_ratio;
-    var cols = Math.floor((width - 2 * x_margin - x_padding) / (font_size + x_padding));
-    var rows = Math.floor((height - 2 * y_margin - y_padding) / (font_height + y_padding));
+    var cols = Math.floor((width - (2 * x_margin) - x_padding) / (font_size + x_padding));
 
     svg.setAttributeNS(null, 'font-size', font_size);
     characters.each(function(index, character, characters) {
         var row = index % cols;
         var col = Math.floor(index / cols);
-        character.element.setAttributeNS(null, 'x', x_margin + row * font_size + (row-1) * x_padding + x_margin);
-        character.element.setAttributeNS(null, 'y', y_margin + col * font_height + (col-1) * y_padding + font_height + y_margin);
+        character.element.setAttributeNS(null, 'x', x_margin + row * font_size + (row-1) * x_padding );
+        character.element.setAttributeNS(null, 'y', y_margin + col * font_height + col * y_padding + font_height);
     });
 };
 
@@ -136,7 +135,7 @@ var globalize_function = function(fn, context) {
     var wrapper = function() {
         fn.apply(context, arguments);
         delete JSONP[name];
-    }
+    };
     JSONP[name] = wrapper;
     return 'wallpaper.JSONP.' + name;
 };
@@ -195,6 +194,9 @@ var queryKanji = function() {
     }
     var url = api_base_url + 'user/' + API_KEY + '/kanji';
     var success = function(response) {
+        if (response.error) {
+            return failure(response);
+        }
         var card, character, info = response.requested_information;
         for (var i=0; i<info.length; ++i) {
             card = info[i];
@@ -216,10 +218,6 @@ var queryKanji = function() {
     send_request(url, success, failure);
 };
 
-var reset = function() {
-    // TODO: Empty SVG, empty characters
-    // 
-};
 
 var emptyCharacters = function() {
     characters.each(function(i, e) {
