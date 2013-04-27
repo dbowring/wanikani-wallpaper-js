@@ -26,7 +26,7 @@ var levels = {
     "apprentice": "rgb(221, 0, 147)",
     "guru": "rgb(136, 45, 158)",
     "master": "rgb(41, 77, 219)",
-    "enlightened": "rgb(0, 147, 221)",
+    "enlighten": "rgb(0, 147, 221)",
     "burned": "rgb(240, 240, 240)"
 };
 
