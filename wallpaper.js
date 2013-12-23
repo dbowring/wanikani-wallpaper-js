@@ -207,6 +207,8 @@ var queryKanji = function() {
             }
             if (card.stats) {
                 character.setLevel(card.stats.srs);
+            } else if (card.user_specific) {
+                character.setLevel(card.user_specific.srs);
             }
         }
         redraw();
